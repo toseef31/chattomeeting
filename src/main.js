@@ -17,7 +17,10 @@ Vue.config.productionTip = false
 
 const SocketInstance = socketio.connect('https://chat.chatto.jp:20000');
 
-Vue.use(VueSocketIO, SocketInstance)
+Vue.use(new VueSocketIO({
+    debug: true,
+    connection: SocketInstance
+}));
 
 new Vue({
   router,
